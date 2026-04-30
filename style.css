@@ -1,0 +1,328 @@
+/* =========================================================
+   Yixin (Sunny) Sun — personal site
+   Aesthetic: cream background, DM Mono headings, gold accents
+   Inspired by kristykim.github.io
+   ========================================================= */
+
+/* ---------- Tokens ---------- */
+:root {
+  --bg: #fdfaf3;             /* cream */
+  --bg-alt: #f5f1e6;         /* slightly darker cream for alt section */
+  --ink: #1a1a1a;            /* near black */
+  --muted: #555;
+  --accent: #f0b929;         /* warm gold (mirrors Bootstrap btn-warning) */
+  --accent-hover: #d99e0d;
+  --outline: #2f8f4a;        /* green for outline buttons */
+  --outline-hover: #21683a;
+  --link: #2f8f4a;
+  --rule: rgba(0, 0, 0, 0.08);
+
+  --font-display: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --max-width: 1100px;
+  --gap: 2rem;
+}
+
+/* ---------- Reset-ish ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--link); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--outline-hover); }
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  z-index: 10;
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--accent-hover); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4rem 0 3rem;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.25;
+  margin: 0 0 1.5rem;
+}
+.hero-subtitle {
+  font-size: 1.15rem;
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+}
+.hero-bio {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.hero-image img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--ink);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--outline);
+  border-color: var(--outline);
+}
+.btn-outline:hover {
+  background: var(--outline);
+  color: #fff;
+}
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--rule);
+}
+.section-alt {
+  background: var(--bg-alt);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin: 0 0 3rem;
+  color: var(--ink);
+}
+
+/* ---------- Paper block (Working papers, with image) ---------- */
+.paper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+.paper:last-child { margin-bottom: 0; }
+.paper-image img {
+  width: 100%;
+}
+.paper-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+}
+.paper-title a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 1px;
+}
+.paper-title a:hover {
+  color: var(--accent-hover);
+}
+.paper-authors {
+  font-size: 0.95rem;
+  margin: 0 0 0.4rem;
+  color: var(--muted);
+}
+.paper-authors a {
+  color: var(--accent-hover);
+}
+.paper-status {
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+.paper-abstract {
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+
+/* Collapsible abstract */
+.abstract {
+  margin: 0 0 1.25rem;
+}
+.abstract > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.35rem 0.85rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  list-style: none;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+.abstract > summary::-webkit-details-marker { display: none; }
+.abstract > summary::before {
+  content: "+";
+  font-weight: 500;
+  display: inline-block;
+  width: 0.75em;
+  text-align: center;
+}
+.abstract[open] > summary::before { content: "−"; }
+.abstract > summary:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+.abstract > p {
+  font-size: 0.95rem;
+  margin: 1rem 0 0;
+  color: var(--ink);
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--rule);
+}
+.paper-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+.paper-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- WIP block (no image) ---------- */
+.wip-paper {
+  margin-bottom: 2.75rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+.wip-paper:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+.footer p { margin: 0; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-image {
+    order: -1;
+    max-width: 220px;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .nav-links {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .section {
+    padding: 2.5rem 0;
+  }
+  .section-title {
+    margin-bottom: 2rem;
+  }
+  .paper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+}
