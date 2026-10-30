@@ -178,6 +178,10 @@ a:hover { color: var(--outline-hover); }
   margin: 0 0 3rem;
   color: var(--ink);
 }
+.section-subtitle {
+  font-size: 1.25rem;
+  margin: 3rem 0 2rem;
+}
 
 /* ---------- Paper block (Working papers, with image) ---------- */
 .paper {
